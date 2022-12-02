@@ -1,4 +1,6 @@
 ﻿
+using Serilog;
+
 namespace HotelListingAPI;
 
 public class Program
@@ -14,6 +16,16 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
+        // Add our CORS policy
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAll", b => b.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
+        });
+
+
+        //Add Serilog , ctx = context, lc = logger configuaration . then go to appsettings.json to set the config for serilog
+        builder.Host.UseSerilog((ctx, lc) => lc.WriteTo.Console().ReadFrom.Configuration(ctx.Configuration)); 
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -24,6 +36,9 @@ public class Program
         }
 
         app.UseHttpsRedirection();
+
+        //Tell app to yse our cors policy
+        app.UseCors("AllowAll");
 
         app.UseAuthorization();
 
