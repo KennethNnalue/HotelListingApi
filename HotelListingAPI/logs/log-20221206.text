@@ -120,3 +120,29 @@ HotelListingAPI.Entities.Hotel -> HotelListingAPI.Models.Country.UpdateCountryDt
 2022-12-06 01:14:32.980 +01:00 [INF] Hosting environment: Development
 2022-12-06 01:14:32.980 +01:00 [INF] Content root path: /Users/nnaluekenneth/Desktop/projects/HotelListing/HotelListingAPI
 2022-12-06 01:14:51.198 +01:00 [WRN] Failed to determine the https port for redirect.
+2022-12-06 01:35:40.578 +01:00 [INF] Now listening on: http://localhost:5167
+2022-12-06 01:35:40.599 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-06 01:35:40.599 +01:00 [INF] Hosting environment: Development
+2022-12-06 01:35:40.599 +01:00 [INF] Content root path: /Users/nnaluekenneth/Desktop/projects/HotelListing/HotelListingAPI
+2022-12-06 01:46:13.024 +01:00 [INF] Now listening on: http://localhost:5167
+2022-12-06 01:46:13.045 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-06 01:46:13.045 +01:00 [INF] Hosting environment: Development
+2022-12-06 01:46:13.045 +01:00 [INF] Content root path: /Users/nnaluekenneth/Desktop/projects/HotelListing/HotelListingAPI
+2022-12-06 01:47:21.941 +01:00 [INF] Now listening on: http://localhost:5167
+2022-12-06 01:47:21.972 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-06 01:47:21.972 +01:00 [INF] Hosting environment: Development
+2022-12-06 01:47:21.972 +01:00 [INF] Content root path: /Users/nnaluekenneth/Desktop/projects/HotelListing/HotelListingAPI
+2022-12-06 01:54:58.880 +01:00 [INF] Now listening on: http://localhost:5167
+2022-12-06 01:54:58.915 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-06 01:54:58.915 +01:00 [INF] Hosting environment: Development
+2022-12-06 01:54:58.915 +01:00 [INF] Content root path: /Users/nnaluekenneth/Desktop/projects/HotelListing/HotelListingAPI
+2022-12-06 01:57:23.006 +01:00 [INF] Application is shutting down...
+2022-12-06 02:10:37.459 +01:00 [INF] Now listening on: http://localhost:5167
+2022-12-06 02:10:37.481 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-06 02:10:37.481 +01:00 [INF] Hosting environment: Development
+2022-12-06 02:10:37.481 +01:00 [INF] Content root path: /Users/nnaluekenneth/Desktop/projects/HotelListing/HotelListingAPI
+2022-12-06 02:13:09.369 +01:00 [INF] Now listening on: http://localhost:5167
+2022-12-06 02:13:09.393 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-06 02:13:09.394 +01:00 [INF] Hosting environment: Development
+2022-12-06 02:13:09.394 +01:00 [INF] Content root path: /Users/nnaluekenneth/Desktop/projects/HotelListing/HotelListingAPI
+2022-12-06 02:37:13.351 +01:00 [INF] Application is shutting down...

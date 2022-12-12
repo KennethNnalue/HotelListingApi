@@ -10,13 +10,13 @@ namespace HotelListingAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Hotels : ControllerBase
+    public class HotelsController : ControllerBase
     {
      
         private readonly IHotelsRepository _hotelsRepository;
         private readonly IMapper _mapper;
 
-        public Hotels(IHotelsRepository hotelsRepository, IMapper mapper)
+        public HotelsController(IHotelsRepository hotelsRepository, IMapper mapper)
         {
             this._mapper = mapper;
             this._hotelsRepository = hotelsRepository;

@@ -1,0 +1,115 @@
+2022-12-10 11:47:09.493 +01:00 [INF] Now listening on: http://localhost:5167
+2022-12-10 11:47:09.515 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-10 11:47:09.516 +01:00 [INF] Hosting environment: Development
+2022-12-10 11:47:09.516 +01:00 [INF] Content root path: /Users/nnaluekenneth/Desktop/projects/HotelListing/HotelListingAPI
+2022-12-10 11:47:26.462 +01:00 [WRN] Failed to determine the https port for redirect.
+2022-12-10 11:47:26.953 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[HotelListingAPI.Entities.User, HotelListingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[HotelListingAPI.Models.User.GetUserDto, HotelListingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+User -> GetUserDto
+HotelListingAPI.Entities.User -> HotelListingAPI.Models.User.GetUserDto
+   at lambda_method168(Closure, User, GetUserDto, ResolutionContext)
+   at lambda_method167(Closure, Object, List`1, ResolutionContext)
+   --- End of inner exception stack trace ---
+   at lambda_method167(Closure, Object, List`1, ResolutionContext)
+   at HotelListingAPI.Controllers.UsersAccountController.GetUsers() in /Users/nnaluekenneth/Desktop/projects/HotelListing/HotelListingAPI/Controllers/UsersAccountController.cs:line 35
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2022-12-10 11:50:36.163 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[HotelListingAPI.Entities.User, HotelListingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[HotelListingAPI.Models.User.GetUserDto, HotelListingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+User -> GetUserDto
+HotelListingAPI.Entities.User -> HotelListingAPI.Models.User.GetUserDto
+   at lambda_method168(Closure, User, GetUserDto, ResolutionContext)
+   at lambda_method167(Closure, Object, List`1, ResolutionContext)
+   --- End of inner exception stack trace ---
+   at lambda_method167(Closure, Object, List`1, ResolutionContext)
+   at HotelListingAPI.Controllers.UsersAccountController.GetUsers()
+   at lambda_method172(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2022-12-10 11:56:27.451 +01:00 [INF] Now listening on: http://localhost:5167
+2022-12-10 11:56:27.473 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-10 11:56:27.473 +01:00 [INF] Hosting environment: Development
+2022-12-10 11:56:27.473 +01:00 [INF] Content root path: /Users/nnaluekenneth/Desktop/projects/HotelListing/HotelListingAPI
+2022-12-10 12:58:39.212 +01:00 [INF] Now listening on: http://localhost:5167
+2022-12-10 12:58:39.236 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-10 12:58:39.236 +01:00 [INF] Hosting environment: Development
+2022-12-10 12:58:39.236 +01:00 [INF] Content root path: /Users/nnaluekenneth/Desktop/projects/HotelListing/HotelListingAPI
+2022-12-10 12:59:28.826 +01:00 [WRN] Failed to determine the https port for redirect.
+2022-12-10 13:19:59.551 +01:00 [INF] Now listening on: http://localhost:5167
+2022-12-10 13:19:59.573 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-10 13:19:59.573 +01:00 [INF] Hosting environment: Development
+2022-12-10 13:19:59.573 +01:00 [INF] Content root path: /Users/nnaluekenneth/Desktop/projects/HotelListing/HotelListingAPI
+2022-12-10 14:19:07.506 +01:00 [INF] Now listening on: http://localhost:5167
+2022-12-10 14:19:07.525 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-10 14:19:07.526 +01:00 [INF] Hosting environment: Development
+2022-12-10 14:19:07.526 +01:00 [INF] Content root path: /Users/nnaluekenneth/Desktop/projects/HotelListing/HotelListingAPI
+2022-12-10 15:56:12.743 +01:00 [INF] Now listening on: http://localhost:5167
+2022-12-10 15:56:12.762 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-10 15:56:12.762 +01:00 [INF] Hosting environment: Development
+2022-12-10 15:56:12.762 +01:00 [INF] Content root path: /Users/nnaluekenneth/Desktop/projects/HotelListing/HotelListingAPI
+2022-12-10 16:30:19.826 +01:00 [INF] Now listening on: http://localhost:5167
+2022-12-10 16:30:19.848 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-10 16:30:19.848 +01:00 [INF] Hosting environment: Development
+2022-12-10 16:30:19.848 +01:00 [INF] Content root path: /Users/nnaluekenneth/Desktop/projects/HotelListing/HotelListingAPI
+2022-12-10 16:31:41.310 +01:00 [WRN] Failed to determine the https port for redirect.
+2022-12-10 16:40:48.804 +01:00 [INF] Application is shutting down...
+2022-12-10 16:40:59.181 +01:00 [INF] Now listening on: http://localhost:5167
+2022-12-10 16:40:59.200 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-10 16:40:59.201 +01:00 [INF] Hosting environment: Development
+2022-12-10 16:40:59.201 +01:00 [INF] Content root path: /Users/nnaluekenneth/Desktop/projects/HotelListing/HotelListingAPI
+2022-12-10 16:42:11.530 +01:00 [WRN] Failed to determine the https port for redirect.
+2022-12-10 16:54:46.891 +01:00 [INF] Application is shutting down...
+2022-12-10 16:54:56.943 +01:00 [INF] Now listening on: http://localhost:5167
+2022-12-10 16:54:56.963 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-10 16:54:56.963 +01:00 [INF] Hosting environment: Development
+2022-12-10 16:54:56.963 +01:00 [INF] Content root path: /Users/nnaluekenneth/Desktop/projects/HotelListing/HotelListingAPI
+2022-12-10 16:55:02.427 +01:00 [WRN] Failed to determine the https port for redirect.
+2022-12-10 17:00:42.880 +01:00 [INF] Application is shutting down...
+2022-12-10 17:00:54.609 +01:00 [INF] Now listening on: http://localhost:5167
+2022-12-10 17:00:54.629 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-10 17:00:54.629 +01:00 [INF] Hosting environment: Development
+2022-12-10 17:00:54.629 +01:00 [INF] Content root path: /Users/nnaluekenneth/Desktop/projects/HotelListing/HotelListingAPI
+2022-12-10 17:01:13.903 +01:00 [WRN] Failed to determine the https port for redirect.

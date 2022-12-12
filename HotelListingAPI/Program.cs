@@ -1,9 +1,14 @@
 ﻿
+using System.Text;
 using HotelListingAPI.Configurations;
 using HotelListingAPI.Data;
 using HotelListingAPI.Data.Repositories;
+using HotelListingAPI.Entities;
 using HotelListingAPI.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Serilog;
 
 namespace HotelListingAPI;
@@ -22,6 +27,16 @@ public class Program
         {
             options.UseSqlite(connectionString);
         });
+
+        //Add IdentityCore of type User entity inheriting IdentityUser
+        // Add Roles to allow us assign roles to user
+        // Add Token Provider 
+        // Also add the DbContext for the user
+        builder.Services.AddIdentityCore<User>()
+        .AddRoles<IdentityRole>()
+        .AddTokenProvider<DataProtectorTokenProvider<User>>("HotelListingApi")
+        .AddEntityFrameworkStores<HotelListingDbContext>()
+        .AddDefaultTokenProviders();
 
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -42,7 +57,25 @@ public class Program
         builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         builder.Services.AddScoped<ICountriesRepository, CountriesRepository>();
         builder.Services.AddScoped<IHotelsRepository, HotelsRepository>();
-
+        builder.Services.AddScoped<IUserAuthManagerRepository, UserAuthManagerRepository>();
+        builder.Services.AddAuthentication(options =>{
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        }).AddJwtBearer(options =>{
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime =true,
+                ClockSkew = TimeSpan.Zero,
+                ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
+                ValidAudience = builder.Configuration["JwtSettings:Audience"],
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+                     builder.Configuration["JwtSettings:Key"]
+                ))
+            };
+        });
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -56,7 +89,7 @@ public class Program
 
         //Tell app to yse our cors policy
         app.UseCors("AllowAll");
-
+        app.UseAuthentication();
         app.UseAuthorization();
 
 
