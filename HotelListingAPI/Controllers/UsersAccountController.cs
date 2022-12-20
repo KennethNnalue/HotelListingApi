@@ -17,13 +17,17 @@ namespace HotelListingAPI.Controllers
     {
         private readonly IUserAuthManagerRepository _userAuthManager;
          private readonly IMapper _mapper;
+        private readonly ILogger<UsersAccountController> _logger;
+
         public UsersAccountController(
             IUserAuthManagerRepository userAuthManager, 
-            IMapper mapper
+            IMapper mapper,
+            ILogger<UsersAccountController> logger
             )
         {
-            this._userAuthManager = userAuthManager;
-            this._mapper = mapper;
+            _userAuthManager = userAuthManager;
+            _mapper = mapper;
+            _logger = logger;
         }
 
              
@@ -49,6 +53,7 @@ namespace HotelListingAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult> Register([FromBody] CreateUserDto user)
         {
+
             var errors = await _userAuthManager.Register(user);
 
             if(errors.Any())
@@ -62,6 +67,13 @@ namespace HotelListingAPI.Controllers
             }
 
             return Ok();
+           
+            // catch (System.Exception exception )
+            // {
+            //     _logger.LogError(exception , $"Something Went Wrong in the {nameof(Register)} - User Registration attempt for {user.Email} ");
+            //     return Problem($"Something Went Wrong in the {nameof(Register)}.  Please contact support. ", statusCode: 500);
+            // }          
+            
         }
 
 
@@ -73,13 +85,15 @@ namespace HotelListingAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult> Login([FromBody] LoginUserDto loginUserDto)
         {
-            var userAuthResponse = await _userAuthManager.Login(loginUserDto);
+
+             var userAuthResponse = await _userAuthManager.Login(loginUserDto);
             if(userAuthResponse == null)
             {
                 return Unauthorized();
             }
 
             return Ok(userAuthResponse);
+        
 
         }
 

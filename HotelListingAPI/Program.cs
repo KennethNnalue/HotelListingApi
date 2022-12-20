@@ -5,6 +5,7 @@ using HotelListingAPI.Data;
 using HotelListingAPI.Data.Repositories;
 using HotelListingAPI.Entities;
 using HotelListingAPI.Interfaces;
+using HotelListingAPI.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -84,6 +85,8 @@ public class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+
+        app.UseMiddleware<ExceptionMiddleware>();
 
         app.UseHttpsRedirection();
 
