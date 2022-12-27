@@ -8,7 +8,10 @@ using HotelListingAPI.Interfaces;
 using HotelListingAPI.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 
@@ -50,6 +53,25 @@ public class Program
             options.AddPolicy("AllowAll", b => b.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
         });
 
+        //Add Versioning
+        builder.Services.AddApiVersioning( options =>
+        {
+            options.AssumeDefaultVersionWhenUnspecified = true;
+            options.DefaultApiVersion = new ApiVersion(1, 0);
+            options.ReportApiVersions = true;
+            options.ApiVersionReader = ApiVersionReader.Combine(
+                new QueryStringApiVersionReader("api-version"),
+                new HeaderApiVersionReader("X-Version"),
+                new MediaTypeApiVersionReader("ver")
+            );
+        });
+
+        builder.Services.AddVersionedApiExplorer( options =>
+        {
+            options.GroupNameFormat = "'v'VVV";
+            options.SubstituteApiVersionInUrl = true;
+        });
+
 
         //Add Serilog , ctx = context, lc = logger configuaration . then go to appsettings.json to set the config for serilog
         builder.Host.UseSerilog((ctx, lc) => lc.WriteTo.Console().ReadFrom.Configuration(ctx.Configuration)); 
@@ -77,6 +99,11 @@ public class Program
                 ))
             };
         });
+
+        builder.Services.AddResponseCaching(options =>
+        { options.MaximumBodySize = 1024;
+          options.UseCaseSensitivePaths = true;
+        });
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -92,6 +119,19 @@ public class Program
 
         //Tell app to yse our cors policy
         app.UseCors("AllowAll");
+        app.UseResponseCaching();
+        app.Use(async (context, next) =>
+        {
+            context.Response.GetTypedHeaders().CacheControl =
+            new Microsoft.Net.Http.Headers.CacheControlHeaderValue()
+            {
+                Public = true,
+                MaxAge = TimeSpan.FromSeconds(15) //Time span to fetch another data from server
+            };
+            context.Response.Headers[Microsoft.Net.Http.Headers.HeaderNames.Vary] = 
+            new string[] {"Accept-Encoding"};
+            await next();
+        });
         app.UseAuthentication();
         app.UseAuthorization();
 

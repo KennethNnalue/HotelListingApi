@@ -1,0 +1,5 @@
+2022-12-27 10:12:52.057 +01:00 [INF] Now listening on: http://localhost:5167
+2022-12-27 10:12:52.078 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-27 10:12:52.078 +01:00 [INF] Hosting environment: Development
+2022-12-27 10:12:52.078 +01:00 [INF] Content root path: /Users/nnaluekenneth/Desktop/projects/HotelListing/HotelListingAPI
+2022-12-27 10:13:41.302 +01:00 [WRN] Failed to determine the https port for redirect.

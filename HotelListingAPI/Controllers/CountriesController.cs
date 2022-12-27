@@ -10,8 +10,12 @@ using HotelListingAPI.Exceptions;
 
 namespace HotelListingAPI.Controllers
 {
-    [Route("api/[controller]")]
+
+    [Route("api/v{version:apiVersion}/countries")]   
+    //[Route("api/[controller]")]
     [ApiController]
+    [ApiVersion("1.0")]
+    // [ApiVersion("1.0", Deprecated = true)]
     public class CountriesController : ControllerBase
     {
        
